@@ -211,6 +211,15 @@ body.glimpse-page .glimpse-nav-logo {
     margin-bottom: 40px;
 }
 
+.services h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1.2;
+}
+
 .service-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -423,6 +432,11 @@ body.glimpse-page .glimpse-nav-logo {
 
     .services {
         padding: 40px 3%;
+    }
+
+    .services h2 {
+        font-size: 2rem;
+        margin-bottom: 35px;
     }
 
     .service-grid {
