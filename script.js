@@ -100,3 +100,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Analytics tracking for contact link
+document.addEventListener('DOMContentLoaded', function() {
+    const contactLink = document.querySelector('a[href="contact.html"]');
+    if (contactLink) {
+        contactLink.addEventListener('click', function() {
+            gtag('event', 'contact_click', {
+                'event_category': 'engagement',
+                'event_label': 'contact_link',
+                'value': 1
+            });
+        });
+    }
+});
