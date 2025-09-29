@@ -933,6 +933,19 @@ html {
     object-fit: cover;
 }
 
+/* Vertical video container for 9:16 aspect ratio */
+.featured-item .video-container-vertical {
+    aspect-ratio: 9/16;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.featured-item .video-container-vertical iframe {
+    aspect-ratio: 9/16;
+    object-fit: cover;
+}
+
 .project-info {
     padding: 2rem;
 }
@@ -1125,6 +1138,10 @@ html {
     .featured-item.large .video-container {
         height: 250px;
     }
+    
+    .featured-item .video-container-vertical {
+        max-width: 250px;
+    }
 
     .featured-work h2,
     .work-categories h2,
@@ -1152,6 +1169,10 @@ html {
 
     .project-info {
         padding: 1.5rem;
+    }
+    
+    .featured-item .video-container-vertical {
+        max-width: 200px;
     }
 
     .category-card {
