@@ -113,4 +113,40 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Track portfolio link clicks
+    const portfolioLink = document.querySelector('a[href="portfolio.html"]');
+    if (portfolioLink) {
+        portfolioLink.addEventListener('click', function() {
+            gtag('event', 'portfolio_click', {
+                'event_category': 'engagement',
+                'event_label': 'portfolio_link',
+                'value': 1
+            });
+        });
+    }
+
+    // Track about link clicks
+    const aboutLink = document.querySelector('a[href="about.html"]');
+    if (aboutLink) {
+        aboutLink.addEventListener('click', function() {
+            gtag('event', 'about_click', {
+                'event_category': 'engagement',
+                'event_label': 'about_link',
+                'value': 1
+            });
+        });
+    }
+
+    // Track home logo clicks
+    const logoLink = document.querySelector('.logo a');
+    if (logoLink) {
+        logoLink.addEventListener('click', function() {
+            gtag('event', 'logo_click', {
+                'event_category': 'engagement',
+                'event_label': 'home_logo',
+                'value': 1
+            });
+        });
+    }
 });

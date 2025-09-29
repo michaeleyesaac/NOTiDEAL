@@ -1,10 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJ16C93Y5N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JJ16C93Y5N', {
+            'page_title': 'Contact - NOT iDEAL Creative House',
+            'custom_map': {
+                'custom_parameter_1': 'engagement_level',
+                'custom_parameter_2': 'scroll_depth',
+                'custom_parameter_3': 'time_on_page'
+            }
+        });
+
+        // Enhanced engagement tracking
+        let startTime = Date.now();
+        let maxScrollDepth = 0;
+        let hasTrackedScroll = false;
+
+        // Track scroll depth
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            
+            if (scrollPercent > maxScrollDepth) {
+                maxScrollDepth = scrollPercent;
+            }
+
+            // Track scroll milestones
+            if (scrollPercent >= 25 && !hasTrackedScroll) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '25%',
+                    'value': scrollPercent
+                });
+                hasTrackedScroll = true;
+            } else if (scrollPercent >= 50) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '50%',
+                    'value': scrollPercent
+                });
+            } else if (scrollPercent >= 75) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '75%',
+                    'value': scrollPercent
+                });
+            } else if (scrollPercent >= 90) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '90%',
+                    'value': scrollPercent
+                });
+            }
+        });
+
+        // Track time on page
+        setInterval(function() {
+            const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+            
+            if (timeOnPage === 30) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '30_seconds',
+                    'value': timeOnPage
+                });
+            } else if (timeOnPage === 60) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '1_minute',
+                    'value': timeOnPage
+                });
+            } else if (timeOnPage === 120) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '2_minutes',
+                    'value': timeOnPage
+                });
+            }
+        }, 1000);
+
+        // Track before user leaves
+        window.addEventListener('beforeunload', function() {
+            const totalTime = Math.round((Date.now() - startTime) / 1000);
+            gtag('event', 'page_exit', {
+                'event_category': 'engagement',
+                'event_label': 'total_time',
+                'value': totalTime,
+                'custom_parameter_1': maxScrollDepth
+            });
+        });
+
+        // Track form interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            if (form) {
+                // Track form start
+                form.addEventListener('focus', function() {
+                    gtag('event', 'form_start', {
+                        'event_category': 'engagement',
+                        'event_label': 'contact_form'
+                    });
+                }, true);
+
+                // Track form submission
+                form.addEventListener('submit', function() {
+                    gtag('event', 'form_submit', {
+                        'event_category': 'conversion',
+                        'event_label': 'contact_form'
+                    });
+                });
+            }
+        });
+
+        // Track section visibility
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'section_view', {
+                        'event_category': 'engagement',
+                        'event_label': entry.target.className
+                    });
+                }
+            });
+        });
+
+        // Observe sections for visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | NOT iDEAL</title>
-    <link rel="stylesheet" href="style.css?v=3">
+    <title>Contact - NOT iDEAL | Creative House</title>
+    <link rel="icon" type="image/png" href="NOT iDEAL LOGO copy 2.png">
+    <link rel="apple-touch-icon" href="NOT iDEAL LOGO copy 2.png">
+    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -20,38 +165,181 @@
                 <span></span>
             </div>
             <div class="nav-links">
-                <a href="index.html" class="glimpse-nav-logo">
-                    <img src="GLIMPSE FULL LOGO.png" alt="GLIMPSE">
-                </a>
+                <a href="about.html">About</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i></a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="contact" class="contact">
-            <div class="contact-content">
-                <h1>CONTACT</h1>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Get In Touch</h1>
+                <p>Ready to tell your story? Let's discuss your project and how we can bring your vision to life through authentic video production.</p>
+            </div>
+        </section>
 
-                
-                <form id="contactForm" action="https://formspree.io/f/info@notideal.ca" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Let's Start Your Project</h2>
+                        <p>We're here to help you create compelling video content that connects with your audience. Whether you're launching a product, growing your brand, or documenting your story, we'd love to hear about your project.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Email</h3>
+                                    <a href="mailto:info@notideal.ca">info@notideal.ca</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Location</h3>
+                                    <p>Toronto, Ontario</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Response Time</h3>
+                                    <p>We typically respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required placeholder="Your Email">
+                    
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xjqkqkqk" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project-type">Project Type</label>
+                                <select id="project-type" name="project-type">
+                                    <option value="">Select a project type</option>
+                                    <option value="documentary">Documentary/Storytelling</option>
+                                    <option value="short-form">Short Form Content</option>
+                                    <option value="event">Event Coverage</option>
+                                    <option value="educational">Educational Content</option>
+                                    <option value="commercial">Commercial/Advertising</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Budget Range</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-5k">Under $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="over-50k">Over $50,000</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timeline">Timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="">Select timeline</option>
+                                    <option value="asap">ASAP</option>
+                                    <option value="1-month">Within 1 month</option>
+                                    <option value="2-3-months">2-3 months</option>
+                                    <option value="3-6-months">3-6 months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Project Details *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project, goals, and any specific requirements..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" required placeholder="Subject">
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>What's your typical project timeline?</h3>
+                        <p>Project timelines vary depending on scope and complexity. Most projects range from 2-8 weeks from concept to delivery. We'll provide a detailed timeline during our initial consultation.</p>
                     </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                    
+                    <div class="faq-item">
+                        <h3>Do you work with clients outside of Toronto?</h3>
+                        <p>Absolutely! While we're based in Toronto, we work with clients across North America. We can travel for shoots or work remotely for certain project phases.</p>
                     </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
+                    
+                    <div class="faq-item">
+                        <h3>What makes your approach different?</h3>
+                        <p>We specialize in documentary-style storytelling that feels authentic and relatable. Rather than polished perfection, we focus on capturing real moments that connect with audiences.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What's included in your video production services?</h3>
+                        <p>Our services include concept development, pre-production planning, filming, post-production editing, and delivery in formats optimized for your platforms and audience.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <script src="./script.js"></script>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="NOT iDEAL LOGO copy 2.png" alt="NOT iDEAL Logo">
+                    <p>Creative House</p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <p>Toronto, ON</p>
+                    <a href="mailto:info@notideal.ca">info@notideal.ca</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOT iDEAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
         gtag('js', new Date());
 
         gtag('config', 'G-JJ16C93Y5N', {
-            'page_title': 'NOT iDEAL - Creative House',
+            'page_title': 'Portfolio - NOT iDEAL Creative House',
             'custom_map': {
                 'custom_parameter_1': 'engagement_level',
                 'custom_parameter_2': 'scroll_depth',
@@ -99,13 +99,13 @@
 
         // Track video interactions
         document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.querySelector('iframe');
-            if (iframe) {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
                 gtag('event', 'video_loaded', {
                     'event_category': 'video',
-                    'event_label': 'vimeo_background'
+                    'event_label': 'portfolio_video'
                 });
-            }
+            });
         });
 
         // Track section visibility
@@ -131,7 +131,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOT iDEAL | Creative House</title>
+    <title>Portfolio - NOT iDEAL | Creative House</title>
     <link rel="icon" type="image/png" href="NOT iDEAL LOGO copy 2.png">
     <link rel="apple-touch-icon" href="NOT iDEAL LOGO copy 2.png">
     <link rel="stylesheet" href="style.css?v=4">
@@ -162,73 +162,156 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>NOT iDEAL</h1>
-                <h2>Creative House</h2>
-                <p>We're a Toronto-based creative house specializing in video production, brand storytelling, and visual content that connects with audiences and elevates brands.</p>
-                <div class="hero-buttons">
-                    <a href="portfolio.html" class="btn btn-primary">View Our Work</a>
-                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Portfolio</h1>
+                <p>A showcase of our documentary-style video production and authentic storytelling work.</p>
+            </div>
+        </section>
+
+        <!-- Featured Work -->
+        <section class="featured-work">
+            <div class="container">
+                <h2>Featured Work</h2>
+                <div class="featured-grid">
+                    <div class="featured-item large">
+                        <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/1092239900?autoplay=0&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        </div>
+                        <div class="project-info">
+                            <h3>Brand Documentary Series</h3>
+                            <p>Documentary-style coverage showcasing authentic brand stories and behind-the-scenes moments that connect with audiences on a deeper level.</p>
+                            <div class="project-tags">
+                                <span class="tag">Documentary</span>
+                                <span class="tag">Brand Storytelling</span>
+                                <span class="tag">Authentic Content</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item">
+                        <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/1092239900?autoplay=0&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        </div>
+                        <div class="project-info">
+                            <h3>Short Form Content</h3>
+                            <p>Social media optimized content that captures attention and drives engagement across platforms.</p>
+                            <div class="project-tags">
+                                <span class="tag">Social Media</span>
+                                <span class="tag">Short Form</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item">
+                        <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/1092239900?autoplay=0&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        </div>
+                        <div class="project-info">
+                            <h3>Event Coverage</h3>
+                            <p>Live event documentation that captures the energy and extends the reach of brand activations.</p>
+                            <div class="project-tags">
+                                <span class="tag">Events</span>
+                                <span class="tag">Live Coverage</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="services">
+        <!-- Work Categories -->
+        <section class="work-categories">
             <div class="container">
-                <h2>What We Do</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-video"></i>
+                <h2>Our Specialties</h2>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-film"></i>
                         </div>
-                        <h3>Video Production</h3>
-                        <p>From concept to completion, we create compelling video content that tells your story authentically and drives engagement.</p>
+                        <h3>Documentary Production</h3>
+                        <p>Authentic storytelling through documentary-style video production that brings depth and immersion to brand narratives.</p>
+                        <ul>
+                            <li>Brand documentaries</li>
+                            <li>Behind-the-scenes coverage</li>
+                            <li>Process documentation</li>
+                            <li>Narrative building</li>
+                        </ul>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <h3>Documentary Style</h3>
-                        <p>Our specialty lies in authentic, documentary-style coverage that brings depth and immersion to your brand story.</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
+                    <div class="category-card">
+                        <div class="category-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h3>Short Form Content</h3>
-                        <p>Perfect for social media, we create engaging short-form videos optimized for platform-specific formats.</p>
+                        <p>Platform-optimized short-form videos designed for maximum engagement across social media channels.</p>
+                        <ul>
+                            <li>Instagram Reels</li>
+                            <li>TikTok content</li>
+                            <li>YouTube Shorts</li>
+                            <li>Social-first content</li>
+                        </ul>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-icon">
+                    <div class="category-card">
+                        <div class="category-icon">
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <h3>Event Coverage</h3>
-                        <p>From product launches to corporate events, we capture the energy and extend the reach of your activations.</p>
+                        <p>Comprehensive event documentation that captures both promotional content and behind-the-scenes moments.</p>
+                        <ul>
+                            <li>Product launches</li>
+                            <li>Corporate events</li>
+                            <li>Brand activations</li>
+                            <li>Live streaming</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Educational Content</h3>
+                        <p>Informational modules and tutorial content that showcases expertise and builds trust with audiences.</p>
+                        <ul>
+                            <li>Process tutorials</li>
+                            <li>Educational modules</li>
+                            <li>How-to content</li>
+                            <li>Expert interviews</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Preview Section -->
-        <section class="about-preview">
+        <!-- Process Section -->
+        <section class="process">
             <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>Why NOT iDEAL?</h2>
-                        <p>We believe in the power of authentic storytelling. In a world saturated with polished, perfect content, we create videos that feel real, relatable, and human.</p>
-                        <p>Our approach brings depth and authenticity to your brand, allowing your audience to truly connect with your story and mission.</p>
-                        <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+                <h2>Our Process</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>Discovery</h3>
+                        <p>We start by understanding your brand, audience, and objectives to create a tailored approach for your project.</p>
                     </div>
-                    <div class="about-visual">
-                        <div class="video-container">
-                            <iframe src="https://player.vimeo.com/video/1092239900?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                        </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>Planning</h3>
+                        <p>Collaborative planning ensures every detail is considered, from concept development to production logistics.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>Production</h3>
+                        <p>Our documentary-style approach captures authentic moments while maintaining the highest production standards.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h3>Delivery</h3>
+                        <p>Final content is delivered optimized for your specific platforms and audience engagement goals.</p>
                     </div>
                 </div>
             </div>
@@ -237,8 +320,8 @@
         <!-- CTA Section -->
         <section class="cta">
             <div class="container">
-                <h2>Ready to Tell Your Story?</h2>
-                <p>Let's create something that connects with your audience and elevates your brand.</p>
+                <h2>Ready to Create Something Together?</h2>
+                <p>Let's discuss your project and how we can bring your story to life through authentic video production.</p>
                 <a href="contact.html" class="btn btn-primary btn-large">Start Your Project</a>
             </div>
         </section>
