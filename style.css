@@ -1311,6 +1311,47 @@ html {
     }
 }
 
+/* Video Placeholder Styles */
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.video-placeholder:hover {
+    background: #e9ecef;
+    border-color: #000;
+    color: #000;
+}
+
+.video-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.video-placeholder p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.video-placeholder small {
+    font-size: 0.9rem;
+    color: #999;
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     .service-card {
@@ -1341,5 +1382,9 @@ html {
     .form-group select,
     .form-group textarea {
         border-width: 3px;
+    }
+    
+    .video-placeholder {
+        border: 3px solid #000;
     }
 }
