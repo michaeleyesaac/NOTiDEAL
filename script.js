@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Cache-busting for stylesheet
-    const stylesheetLink = document.querySelector('link[href*="style.css"]');
-    if (stylesheetLink) {
-        const newHref = stylesheetLink.href.split('?')[0] + '?v=3&t=' + new Date().getTime();
-        stylesheetLink.href = newHref;
-    }
+           // Cache-busting for stylesheet
+           const stylesheetLink = document.querySelector('link[href*="style.css"]');
+           if (stylesheetLink) {
+               const newHref = stylesheetLink.href.split('?')[0] + '?v=5&t=' + new Date().getTime();
+               stylesheetLink.href = newHref;
+           }
 
     // Smooth scrolling for navigation links (if you still need this for internal anchors)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
