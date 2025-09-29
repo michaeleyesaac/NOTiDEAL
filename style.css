@@ -1281,6 +1281,14 @@ html {
     .faq-grid {
         grid-template-columns: 1fr;
     }
+    
+    .additional-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .additional-work h3 {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1309,6 +1317,63 @@ html {
     .faq-item {
         padding: 1.5rem;
     }
+}
+
+/* Additional Work Section */
+.additional-work {
+    margin-top: 4rem;
+}
+
+.additional-work h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #000;
+}
+
+.additional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.additional-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.additional-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.additional-item .video-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.additional-item .project-info {
+    padding: 1.5rem;
+}
+
+.additional-item .project-info h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #000;
+}
+
+.additional-item .project-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
 /* Video Placeholder Styles */
