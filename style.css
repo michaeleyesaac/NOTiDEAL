@@ -122,37 +122,106 @@ nav {
 /* Hero Section */
 .hero {
     height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     text-align: center;
-    padding-top: 80px;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-video .video-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-video .video-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.hero-video .video-placeholder p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.hero-video .video-placeholder small {
+    font-size: 1rem;
+    color: #999;
+}
+
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 0 2rem;
 }
 
 .hero-content h1 {
     font-size: 4rem;
     font-weight: 900;
-    color: #000;
+    color: #fff;
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h2 {
     font-size: 1.5rem;
     font-weight: 300;
-    color: #666;
+    color: #f0f0f0;
     margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    color: #555;
+    color: #e0e0e0;
     max-width: 600px;
     margin: 0 auto 3rem;
     line-height: 1.7;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
@@ -466,6 +535,14 @@ footer {
     .hero-content p {
         font-size: 1rem;
     }
+    
+    .hero-video .video-placeholder i {
+        font-size: 3rem;
+    }
+    
+    .hero-video .video-placeholder p {
+        font-size: 1.2rem;
+    }
 
     .hero-buttons {
         flex-direction: column;
@@ -510,6 +587,14 @@ footer {
 @media (max-width: 480px) {
     .hero-content h1 {
         font-size: 2rem;
+    }
+    
+    .hero-video .video-placeholder i {
+        font-size: 2.5rem;
+    }
+    
+    .hero-video .video-placeholder p {
+        font-size: 1rem;
     }
 
     .services h2 {
