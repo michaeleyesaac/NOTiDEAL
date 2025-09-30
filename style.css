@@ -897,6 +897,7 @@ html {
     grid-template-rows: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
+    height: 600px;
 }
 
 /* Row 1: BRANDING (large left) + MICRO CONTENT (right) */
@@ -948,30 +949,25 @@ html {
 .featured-item .video-container {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 100%;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .featured-item.branding .video-container {
-    aspect-ratio: 16/9;
-    height: auto;
-    min-height: 520px;
+    height: 100%;
 }
 
 .featured-item.micro-content .video-container {
-    aspect-ratio: 16/9;
-    height: auto;
-    min-height: 250px;
+    height: 100%;
 }
 
 .featured-item.music-video .video-container {
-    aspect-ratio: 16/9;
-    height: auto;
-    min-height: 250px;
+    height: 100%;
 }
 
 .featured-item.documentary .video-container {
-    height: 250px;
+    height: 100%;
 }
 
 .featured-item.educational .video-container {
@@ -981,11 +977,11 @@ html {
 .featured-item .video-container iframe {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     border: none;
     position: absolute;
     top: 0;
     left: 0;
+    transform: scale(1.1);
 }
 
 /* Vertical video container for 9:16 aspect ratio */
