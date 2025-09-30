@@ -537,7 +537,7 @@ footer {
 
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
+    align-items: center;
     }
 
     .services h2 {
@@ -570,7 +570,7 @@ footer {
 
     .footer-links {
         flex-direction: row;
-        justify-content: center;
+    justify-content: center;
         gap: 2rem;
     }
 }
@@ -894,13 +894,13 @@ html {
 .featured-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto auto;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
 .featured-item.large {
-    grid-row: span 2;
+    grid-row: span 4;
 }
 
 .featured-item {
@@ -1343,7 +1343,7 @@ html {
 
 .faq-item {
     background: white;
-    padding: 2rem;
+        padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
@@ -1432,7 +1432,7 @@ html {
 }
 
 .additional-work h3 {
-    font-size: 2rem;
+        font-size: 2rem;
     font-weight: 600;
     text-align: center;
     margin-bottom: 3rem;
