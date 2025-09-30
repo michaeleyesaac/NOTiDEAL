@@ -895,7 +895,7 @@ html {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0.5rem;
+    gap: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -911,21 +911,19 @@ html {
 }
 
 /* Row 2: MUSIC VIDEO + DOCUMENTARY (side-by-side left) + EDUCATIONAL (right) */
-.featured-item.music-video {
+.bottom-left-wrapper {
     grid-column: 1;
     grid-row: 2;
-    width: calc(50% - 1rem);
-    display: inline-block;
-    vertical-align: top;
+    display: flex;
+    gap: 1rem;
+}
+
+.featured-item.music-video {
+    flex: 1;
 }
 
 .featured-item.documentary {
-    grid-column: 1;
-    grid-row: 2;
-    width: calc(50% - 1rem);
-    margin-left: calc(50% + 1rem);
-    display: inline-block;
-    vertical-align: top;
+    flex: 1;
 }
 
 .featured-item.educational {
