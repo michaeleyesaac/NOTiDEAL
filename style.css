@@ -924,7 +924,8 @@ html {
 }
 
 .featured-item.large .video-container {
-    height: 532px;
+    aspect-ratio: 16/9;
+    height: auto;
 }
 
 .featured-item .video-container iframe {
@@ -1148,7 +1149,8 @@ html {
     }
 
     .featured-item.large .video-container {
-        height: 280px;
+        aspect-ratio: 16/9;
+        height: auto;
     }
     
     .featured-item .video-container-vertical {
