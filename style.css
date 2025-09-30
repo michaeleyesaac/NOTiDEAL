@@ -953,15 +953,21 @@ html {
 }
 
 .featured-item.branding .video-container {
-    height: 520px;
+    aspect-ratio: 16/9;
+    height: auto;
+    min-height: 520px;
 }
 
 .featured-item.micro-content .video-container {
-    height: 250px;
+    aspect-ratio: 16/9;
+    height: auto;
+    min-height: 250px;
 }
 
 .featured-item.music-video .video-container {
-    height: 250px;
+    aspect-ratio: 16/9;
+    height: auto;
+    min-height: 250px;
 }
 
 .featured-item.documentary .video-container {
@@ -975,8 +981,11 @@ html {
 .featured-item .video-container iframe {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
     border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Vertical video container for 9:16 aspect ratio */
