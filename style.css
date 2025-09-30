@@ -969,7 +969,7 @@ html {
 }
 
 .featured-item.educational .video-container {
-    height: 250px;
+    height: auto;
 }
 
 .featured-item .video-container iframe {
