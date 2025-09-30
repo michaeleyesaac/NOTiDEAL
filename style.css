@@ -899,32 +899,36 @@ html {
     margin-bottom: 2rem;
 }
 
-.featured-item.large {
+/* Row 1: BRANDING (large left) + MICRO CONTENT (right) */
+.featured-item.branding {
     grid-column: 1;
     grid-row: 1;
 }
 
-.featured-item.top-right {
+.featured-item.micro-content {
     grid-column: 2;
     grid-row: 1;
 }
 
-.bottom-left-container {
+/* Row 2: MUSIC VIDEO + DOCUMENTARY (side-by-side left) + EDUCATIONAL (right) */
+.featured-item.music-video {
     grid-column: 1;
     grid-row: 2;
-    display: flex;
-    gap: 1rem;
+    width: calc(50% - 1rem);
+    display: inline-block;
+    vertical-align: top;
 }
 
-.featured-item.bottom-left {
-    flex: 1;
+.featured-item.documentary {
+    grid-column: 1;
+    grid-row: 2;
+    width: calc(50% - 1rem);
+    margin-left: calc(50% + 1rem);
+    display: inline-block;
+    vertical-align: top;
 }
 
-.featured-item.bottom-left-2 {
-    flex: 1;
-}
-
-.featured-item.bottom-right {
+.featured-item.educational {
     grid-column: 2;
     grid-row: 2;
 }
