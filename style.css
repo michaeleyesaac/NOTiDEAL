@@ -893,34 +893,39 @@ html {
 
 .featured-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
 .featured-item.large {
-    grid-column: 1 / 3;
+    grid-column: 1;
     grid-row: 1;
 }
 
 .featured-item.top-right {
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 1;
 }
 
-.featured-item.bottom-left {
+.bottom-left-container {
     grid-column: 1;
     grid-row: 2;
+    display: flex;
+    gap: 1rem;
+}
+
+.featured-item.bottom-left {
+    flex: 1;
 }
 
 .featured-item.bottom-left-2 {
-    grid-column: 2;
-    grid-row: 2;
+    flex: 1;
 }
 
 .featured-item.bottom-right {
-    grid-column: 3;
+    grid-column: 2;
     grid-row: 2;
 }
 
