@@ -924,7 +924,7 @@ html {
 }
 
 .featured-item.large .video-container {
-    height: 420px;
+    height: 532px;
 }
 
 .featured-item .video-container iframe {
@@ -1148,7 +1148,7 @@ html {
     }
 
     .featured-item.large .video-container {
-        height: 220px;
+        height: 280px;
     }
     
     .featured-item .video-container-vertical {
