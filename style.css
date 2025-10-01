@@ -891,13 +891,30 @@ html {
     color: #000;
 }
 
+/* Grid layout for services section */
 .featured-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 2rem;
     margin-bottom: 2rem;
 }
+
+.featured-item.branding {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.featured-item.micro-content {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.featured-item.educational {
+    grid-column: 2;
+    grid-row: 2;
+}
+
 
 /* Row 1: BRANDING (large left) + MICRO CONTENT (right) */
 .featured-item.branding {
