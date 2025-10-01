@@ -923,6 +923,10 @@ html {
     object-fit: fill;
 }
 
+.featured-item.micro-content .video-container iframe {
+    object-fit: fill;
+}
+
 
 /* Row 1: BRANDING (large left) + MICRO CONTENT (right) */
 .featured-item.branding {
