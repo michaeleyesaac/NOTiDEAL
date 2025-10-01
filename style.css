@@ -915,6 +915,14 @@ html {
     grid-row: 1;
 }
 
+.featured-item .video-container {
+    border-radius: 12px;
+}
+
+.featured-item .video-container iframe {
+    object-fit: fill;
+}
+
 
 /* Row 1: BRANDING (large left) + MICRO CONTENT (right) */
 .featured-item.branding {
