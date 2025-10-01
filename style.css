@@ -922,10 +922,6 @@ html {
     grid-row: 1;
 }
 
-.featured-item.micro-content {
-    grid-column: 2;
-    grid-row: 1;
-}
 
 /* Row 2: MUSIC VIDEO + DOCUMENTARY (side-by-side left) + EDUCATIONAL (right) */
 .bottom-left-wrapper {
@@ -943,10 +939,6 @@ html {
     flex: 1;
 }
 
-.featured-item.educational {
-    grid-column: 2;
-    grid-row: 2;
-}
 
 .featured-item {
     position: relative;
