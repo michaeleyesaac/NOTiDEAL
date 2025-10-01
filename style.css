@@ -948,26 +948,26 @@ html {
 .featured-item .video-container {
     position: relative;
     width: 100%;
-    height: 250px;
-    overflow: hidden;
+    height: 230px;
+    overflow: visible;
 }
 
 .featured-item.branding .video-container {
-    height: 500px;
+    height: 480px;
     overflow: visible;
 }
 
 .featured-item.micro-content .video-container {
-    height: 250px;
+    height: 230px;
 }
 
 .featured-item.music-video .video-container {
-    height: 250px;
+    height: 230px;
     overflow: visible;
 }
 
 .featured-item.documentary .video-container {
-    height: 250px;
+    height: 230px;
 }
 
 .featured-item.educational .video-container {
