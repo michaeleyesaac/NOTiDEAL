@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJ16C93Y5N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JJ16C93Y5N', {
+            'page_title': 'NOT iDEAL - Creative House',
+            'custom_map': {
+                'custom_parameter_1': 'engagement_level',
+                'custom_parameter_2': 'scroll_depth',
+                'custom_parameter_3': 'time_on_page'
+            }
+        });
+
+        // Enhanced engagement tracking
+        let startTime = Date.now();
+        let maxScrollDepth = 0;
+        let hasTrackedScroll = false;
+
+        // Track scroll depth
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            
+            if (scrollPercent > maxScrollDepth) {
+                maxScrollDepth = scrollPercent;
+            }
+
+            // Track scroll milestones
+            if (scrollPercent >= 25 && !hasTrackedScroll) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '25%',
+                    'value': scrollPercent
+                });
+                hasTrackedScroll = true;
+            } else if (scrollPercent >= 50) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '50%',
+                    'value': scrollPercent
+                });
+            } else if (scrollPercent >= 75) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '75%',
+                    'value': scrollPercent
+                });
+            } else if (scrollPercent >= 90) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '90%',
+                    'value': scrollPercent
+                });
+            }
+        });
+
+        // Track time on page
+        setInterval(function() {
+            const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+            
+            if (timeOnPage === 30) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '30_seconds',
+                    'value': timeOnPage
+                });
+            } else if (timeOnPage === 60) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '1_minute',
+                    'value': timeOnPage
+                });
+            } else if (timeOnPage === 120) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '2_minutes',
+                    'value': timeOnPage
+                });
+            }
+        }, 1000);
+
+        // Track before user leaves
+        window.addEventListener('beforeunload', function() {
+            const totalTime = Math.round((Date.now() - startTime) / 1000);
+            gtag('event', 'page_exit', {
+                'event_category': 'engagement',
+                'event_label': 'total_time',
+                'value': totalTime,
+                'custom_parameter_1': maxScrollDepth
+            });
+        });
+
+        // Track video interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.querySelector('iframe');
+            if (iframe) {
+                gtag('event', 'video_loaded', {
+                    'event_category': 'video',
+                    'event_label': 'vimeo_background'
+                });
+            }
+        });
+
+        // Track section visibility
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'section_view', {
+                        'event_category': 'engagement',
+                        'event_label': entry.target.className
+                    });
+                }
+            });
+        });
+
+        // Observe sections for visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOT iDEAL | Creative House</title>
+    <link rel="icon" type="image/png" href="NOT iDEAL LOGO copy 2.png">
+    <link rel="apple-touch-icon" href="NOT iDEAL LOGO copy 2.png">
+    <link rel="stylesheet" href="style.css?v=18">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="NOT iDEAL LOGO copy 2.png" alt="NOT iDEAL Logo">
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                    <a href="#projects">Services</a>
+                    <a href="#contact"><i class="fas fa-envelope"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-video">
+                <!-- VIDEO PLACEHOLDER: Insert your main demo reel here -->
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Main Demo Reel</p>
+                    <small>Insert your video here</small>
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1><em>not ideal</em></h1>
+                <p>We're a Toronto-based creative house specializing in video production, brand storytelling, & visual content for creators & small to medium size businesses.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Our Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2>What We Do</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Branding/Advertising</h3>
+                        <p>Professional branding and advertising videos that humanize your brand, build trust, and make potential clients more willing to commit. People connect faster with video than text, and presenting your brand authentically on screen is one of the most powerful ways to build relationships.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Micro-Content & Product Marketing</h3>
+                        <p>Short, powerful visuals are the sharpest tool in today's attention economy. Quick but impactful clips grab attention in seconds and funnel viewers directly toward your product on the platforms where your customers already live.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Educational / Informational Videos</h3>
+                        <p>Content that educates establishes your brand as a reliable source of knowledge. Educational modules position you as a thought leader and give your audience more than just a product—they offer growth and understanding.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Music Video Production</h3>
+                        <p>For an artist, visuals are just as important as the music itself. A high-quality music video maximizes reach and builds a stronger following by pairing sound with striking imagery in a crowded music landscape.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>BTS & Documentary-Style Footage</h3>
+                        <p>Audiences want authenticity. Behind-the-scenes and documentary content offers a window into the process, building trust and creating deeper connections while demonstrating transparency and dedication.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-star"></i>
+                        </div>
+                        <h3>Event Recapture & Promotion</h3>
+                        <p>High-quality recap videos don't just document an event—they extend its life. They make future events more enticing, amplify the allure and exclusivity, and immerse viewers into the experience long after it's over.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="about-preview">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Why NOT iDEAL?</h2>
+                        <p>We believe in the power of authentic storytelling. In a world saturated with polished, perfect content, we create videos that feel real, relatable, and human.</p>
+                        <p>Our approach brings depth and authenticity to your brand, allowing your audience to truly connect with your story and mission.</p>
+                    </div>
+                    <div class="about-visual">
+                        <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/1092239900?loop=1&muted=1&byline=0&title=0&portrait=0&transparent=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section id="projects" class="featured-work">
+            <div class="container">
+                <h2>Services</h2>
+                <div class="featured-grid">
+                    <!-- Row 1: BRANDING (large left) + MICRO CONTENT (right) -->
+                    <div class="featured-item branding">
+                        <div class="video-container">
+                            <iframe src="https://player.vimeo.com/video/1123302154?loop=1&muted=1&byline=0&title=0&portrait=0&transparent=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="project-info">
+                            <h3>Branding/Advertising</h3>
+                            <p>Professional branding and advertising videos that humanize your brand and build trust with potential clients through authentic visual storytelling.</p>
+                            <div class="project-tags">
+                                <span class="tag">Branding</span>
+                                <span class="tag">Advertising</span>
+                                <span class="tag">Brand Building</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item micro-content">
+                        <div class="video-container video-container-micro">
+                            <iframe src="https://player.vimeo.com/video/1122920315?loop=1&muted=1&byline=0&title=0&portrait=0&transparent=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="project-info">
+                            <h3>Micro-Content & Product Marketing</h3>
+                            <p>Short, powerful visuals designed for today's attention economy that grab attention in seconds and funnel viewers directly toward your product.</p>
+                            <div class="project-tags">
+                                <span class="tag">Micro-Content</span>
+                                <span class="tag">Product Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2: MUSIC VIDEO + DOCUMENTARY (side-by-side left) + EDUCATIONAL (right) -->
+                    <div class="bottom-left-wrapper">
+                        <div class="featured-item music-video">
+                            <div class="video-container">
+                                <iframe src="https://player.vimeo.com/video/1122972556?loop=1&muted=1&byline=0&title=0&portrait=0&transparent=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="project-info">
+                                <h3>Music Video Production</h3>
+                                <p>High-quality music videos that maximize reach and build stronger artist followings.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Music Video</span>
+                                    <span class="tag">Artist Content</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="featured-item documentary">
+            <div class="video-container">
+                                <iframe src="https://player.vimeo.com/video/1120898569?byline=0&title=0&portrait=0&autoplay=0&color=ffffff" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="project-info">
+                                <h3>BTS & Documentary-Style Footage</h3>
+                                <p>Behind-the-scenes content that offers transparency and builds deeper connections.</p>
+                                <div class="project-tags">
+                                    <span class="tag">BTS</span>
+                                    <span class="tag">Documentary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item educational">
+                        <div class="video-container video-container-vertical">
+                            <iframe src="https://player.vimeo.com/video/1122946665?loop=1&muted=1&byline=0&title=0&portrait=0&transparent=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="project-info">
+                            <h3>Educational / Informational Videos</h3>
+                            <p>Educational content that establishes your brand as a thought leader and provides value beyond just products.</p>
+                            <div class="project-tags">
+                                <span class="tag">Educational</span>
+                                <span class="tag">Informational</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process">
+            <div class="container">
+                <h2>Our Process</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>Discovery</h3>
+                        <p>We start by understanding your brand, audience, and objectives to create a tailored approach for your project.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>Planning</h3>
+                        <p>Collaborative planning ensures every detail is considered, from concept development to production logistics.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>Production</h3>
+                        <p>Our professional approach captures authentic moments while maintaining the highest production standards.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h3>Delivery</h3>
+                        <p>Final content is delivered optimized for your specific platforms and audience engagement goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Let's Start Your Project</h2>
+                        <p>We're here to help you create compelling video content that connects with your audience. Whether you're launching a product, growing your brand, or documenting your story, we'd love to hear about your project.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Email</h3>
+                                    <a href="mailto:info@notideal.ca">info@notideal.ca</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Location</h3>
+                                    <p>Toronto, Ontario</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Response Time</h3>
+                                    <p>We typically respond within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xjqkqkqk" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Project Details *</label>
+                                <textarea id="message" name="message" rows="8" required placeholder="Tell us about your project, goals, timeline, budget, and any specific requirements..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>What's your typical project timeline?</h3>
+                        <p>Project timeline is strictly subject to your specific needs and requirements, and is a key factor in determining project cost. All timeline details, deliverables, and pricing are discussed and agreed upon in advance during our consultation to ensure complete transparency and alignment.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What makes your approach different?</h3>
+                        <p>We specialize in authentic video storytelling that feels real and relatable. We focus on capturing genuine moments that connect with audiences and elevate your brand.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>What's included in your video production services?</h3>
+                        <p>Our services include concept development, pre-production planning, filming, post-production editing, and delivery in formats optimized for your platforms and audience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="/"><img src="NOT iDEAL LOGO copy 2.png" alt="NOT iDEAL Logo"></a>
+                    <p>Creative House</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#projects">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <p>Toronto, ON</p>
+                    <a href="mailto:info@notideal.ca">info@notideal.ca</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOT iDEAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=5"></script>
+</body>
+</html> 

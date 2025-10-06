@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJ16C93Y5N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-JJ16C93Y5N', {
+            'page_title': 'Projects - NOT iDEAL Creative House',
+            'custom_map': {
+                'custom_parameter_1': 'engagement_level',
+                'custom_parameter_2': 'scroll_depth',
+                'custom_parameter_3': 'time_on_page'
+            }
+        });
+
+        // Enhanced engagement tracking
+        let startTime = Date.now();
+        let maxScrollDepth = 0;
+        let hasTrackedScroll = false;
+
+        // Track scroll depth
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            
+            if (scrollPercent > maxScrollDepth) {
+                maxScrollDepth = scrollPercent;
+            }
+
+            // Track scroll milestones
+            if (scrollPercent >= 25 && !hasTrackedScroll) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '25%',
+                    'value': scrollPercent
+                });
+                hasTrackedScroll = true;
+            } else if (scrollPercent >= 50) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '50%',
+                    'value': scrollPercent
+                });
+            } else if (scrollPercent >= 75) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '75%',
+                    'value': scrollPercent
+                });
+            } else if (scrollPercent >= 90) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': '90%',
+                    'value': scrollPercent
+                });
+            }
+        });
+
+        // Track time on page
+        setInterval(function() {
+            const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+            
+            if (timeOnPage === 30) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '30_seconds',
+                    'value': timeOnPage
+                });
+            } else if (timeOnPage === 60) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '1_minute',
+                    'value': timeOnPage
+                });
+            } else if (timeOnPage === 120) {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': '2_minutes',
+                    'value': timeOnPage
+                });
+            }
+        }, 1000);
+
+        // Track before user leaves
+        window.addEventListener('beforeunload', function() {
+            const totalTime = Math.round((Date.now() - startTime) / 1000);
+            gtag('event', 'page_exit', {
+                'event_category': 'engagement',
+                'event_label': 'total_time',
+                'value': totalTime,
+                'custom_parameter_1': maxScrollDepth
+            });
+        });
+
+        // Track video interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                gtag('event', 'video_loaded', {
+                    'event_category': 'video',
+                    'event_label': 'portfolio_video'
+                });
+            });
+        });
+
+        // Track section visibility
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'section_view', {
+                        'event_category': 'engagement',
+                        'event_label': entry.target.className
+                    });
+                }
+            });
+        });
+
+        // Observe sections for visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - NOT iDEAL | Creative House</title>
+    <link rel="icon" type="image/png" href="NOT iDEAL LOGO copy 2.png">
+    <link rel="apple-touch-icon" href="NOT iDEAL LOGO copy 2.png">
+    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="NOT iDEAL LOGO copy 2.png" alt="NOT iDEAL Logo">
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="portfolio.html">Projects</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Projects</h1>
+                <p>A showcase of our video production and authentic storytelling work.</p>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="featured-work">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="featured-grid">
+                    <div class="featured-item large">
+                        <div class="video-container">
+                            <!-- VIDEO PLACEHOLDER: Real estate agent profiles -->
+                            <div class="video-placeholder">
+                                <i class="fas fa-video"></i>
+                                <p>Real Estate Agent Profile Videos</p>
+                                <small>Insert your video here</small>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Branding/Advertising</h3>
+                            <p>Professional branding and advertising videos that humanize your brand and build trust with potential clients through authentic visual storytelling.</p>
+                            <div class="project-tags">
+                                <span class="tag">Branding</span>
+                                <span class="tag">Advertising</span>
+                                <span class="tag">Brand Building</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item">
+                        <div class="video-container">
+                            <!-- VIDEO PLACEHOLDER: Manjula product shots -->
+                            <div class="video-placeholder">
+                                <i class="fas fa-video"></i>
+                                <p>Manjula Product Shots</p>
+                                <small>Insert your video here</small>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Micro-Content & Product Marketing</h3>
+                            <p>Short, powerful visuals designed for today's attention economy that grab attention in seconds and funnel viewers directly toward your product.</p>
+                            <div class="project-tags">
+                                <span class="tag">Micro-Content</span>
+                                <span class="tag">Product Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-item">
+                        <div class="video-container">
+                            <!-- VIDEO PLACEHOLDER: Manjula Educational Campaign -->
+                            <div class="video-placeholder">
+                                <i class="fas fa-video"></i>
+                                <p>Manjula Educational Campaign</p>
+                                <small>Insert your video here</small>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Educational / Informational Videos</h3>
+                            <p>Educational content that establishes your brand as a thought leader and provides value beyond just products.</p>
+                            <div class="project-tags">
+                                <span class="tag">Educational</span>
+                                <span class="tag">Informational</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Projects Section -->
+                <div class="additional-work">
+                    <h3>More of Our Projects</h3>
+                    <div class="additional-grid">
+                        <div class="additional-item">
+                            <div class="video-container">
+                                <!-- VIDEO PLACEHOLDER: Music videos -->
+                                <div class="video-placeholder">
+                                    <i class="fas fa-video"></i>
+                                    <p>Music Video - "More"</p>
+                                    <small>Insert your video here</small>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>Music Video Production</h4>
+                                <p>High-quality music videos that maximize reach and build stronger artist followings.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Music Video</span>
+                                    <span class="tag">Artist Content</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="additional-item">
+                            <div class="video-container">
+                                <!-- VIDEO PLACEHOLDER: DuPont Fitness docuseries -->
+                                <div class="video-placeholder">
+                                    <i class="fas fa-video"></i>
+                                    <p>DuPont Fitness Docuseries</p>
+                                    <small>Insert your video here</small>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>BTS & Documentary-Style Footage</h4>
+                                <p>Behind-the-scenes content that offers transparency and builds deeper connections.</p>
+                                <div class="project-tags">
+                                    <span class="tag">BTS</span>
+                                    <span class="tag">Documentary</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="additional-item">
+                            <div class="video-container">
+                                <!-- VIDEO PLACEHOLDER: Coinchange International Connect -->
+                                <div class="video-placeholder">
+                                    <i class="fas fa-video"></i>
+                                    <p>Coinchange International Connect</p>
+                                    <small>Insert your video here</small>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h4>Event Recapture & Promotion</h4>
+                                <p>High-quality event recap videos that extend the life of your events and amplify their allure for future promotions.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Event Recap</span>
+                                    <span class="tag">Promotion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Process Section -->
+        <section class="process">
+            <div class="container">
+                <h2>Our Process</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>Discovery</h3>
+                        <p>We start by understanding your brand, audience, and objectives to create a tailored approach for your project.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>Planning</h3>
+                        <p>Collaborative planning ensures every detail is considered, from concept development to production logistics.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>Production</h3>
+                        <p>Our professional approach captures authentic moments while maintaining the highest production standards.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h3>Delivery</h3>
+                        <p>Final content is delivered optimized for your specific platforms and audience engagement goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Create Something Together?</h2>
+                <p>Let's discuss your project and how we can bring your story to life through authentic video production.</p>
+                <a href="contact.html" class="btn btn-primary btn-large">Start Your Project</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="NOT iDEAL LOGO copy 2.png" alt="NOT iDEAL Logo">
+                    <p>Creative House</p>
+                </div>
+                <div class="footer-links">
+                    <a href="portfolio.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <p>Toronto, ON</p>
+                    <a href="mailto:info@notideal.ca">info@notideal.ca</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOT iDEAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
